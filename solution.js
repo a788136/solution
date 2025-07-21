@@ -1,29 +1,31 @@
 const code = [
-  'const code = [',
-  '  // PLACEHOLDER',
-  '];',
+  'code = [',
+  '    "code = [",',
+  '    "    \\"code = [\\",",',
+  '    "    \\"    \\\\\\"code = [\\\\\\",\\",",',
+  '    "    \\"    \\\\\\"    \\\\\\\\\\\\\\"code = [\\\\\\\\\\\\\\",\\\\\\",\\",",',
+  '    "    \\"    \\\\\\"    \\\\\\\\\\\\\\"    \\\\\\\\\\\\\\\\\\\\\\\"code = [\\\\\\\\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\",\\\\\\",\\",",',
+  '    "    ...",',
+  '    "print(\\"code = [\\")",',
+  '    "for line in code:",',
+  '    "    print(f\'    \\\\\\"\{line.replace(chr(92), chr(92)+chr(92)).replace(chr(34), chr(92)+chr(34))}\\\\\\",\')",',
+  '    "print(\\"\\")",',
+  '    "for line in code: print(line)"',
+  ']',
   '',
-  'for (const line of code) {',
-  '  const quoted = line.replace(/\\\\/g, \'\\\\\\\\\').replace(/"/g, \'\\\\"\');',
-  '  console.log(`    "\${quoted}",`);',
-  '}',
+  'print("code = [")',
+  'for line in code:',
+  '    print(f\'    "{line.replace(chr(92), chr(92)+chr(92)).replace(chr(34), chr(92)+chr(34))}",\')',
+  'print("]")',
   '',
-  'console.log("");',
-  'console.log("print(\\\"code = [\\\")");',
-  'for (const line of code) {',
-  '  const escaped = line.replace(/\\\\/g, \'\\\\\\\\\').replace(/"/g, \'\\\\"\');',
-  '  console.log(`print(\\\"    \\\\\\"\${escaped}\\\\\\",\\\")`);',
-  '}',
-  'console.log("print(\\\"]\\\")");',
-  'console.log("print()");',
-  'console.log("for line in code: print(line)");'
+  'for line in code: print(line)'
 ];
 
-console.log('print("code = [")');
+console.log('code = [');
 for (const line of code) {
   const escaped = line.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
-  console.log(`print("    \\"${escaped}\\",")`);
+  console.log(`    "${escaped}",`);
 }
-console.log('print("]")');
-console.log('print()');
+console.log(']');
+console.log();
 console.log('for line in code: print(line)');
